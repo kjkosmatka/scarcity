@@ -21,8 +21,10 @@ def validate_environment
 end
 
 def must_have_data_source_certificate(directory)
-  if not File.exist?(directory + '/.soar_data_certificate')
+  if not File.exist?(directory + '/.scarcity_data_certificate')
     puts "Cannot start <%= base_name %>: missing certificate in the data source directory"
+    puts "Create one now if you wish:"
+    puts "\ttouch #{DATA_DIR}/.scarcity_data_certificate"
     exit
   end
 end
