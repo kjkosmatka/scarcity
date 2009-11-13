@@ -6,6 +6,9 @@ http://github.com/kjkosmatka/scarcity
 
 An application framework for projects using the Condor platform.
 
+What's with the name?  A 'scarcity' is a group of condors.  A group of condors
+is also sometimes called a 'condo'.  Votes please.
+
 == FEATURES/PROBLEMS:
 
 Application stub generators, data provisioning, dynamic Condor DAGman building,
