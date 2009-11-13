@@ -33,7 +33,7 @@ class ScarcityGenerator < RubiGen::Base
       m.file 'executable.submit', "app/submits/#{@base_name}.submit"
       m.template 'control.rb', "script/#{@base_name}", :chmod => 0755
       m.file 'environment.rb', "config/environment.rb"
-      m.file 'boot.rb', 'config/boot.rb'
+      m.template 'boot.rb', 'config/boot.rb'
       m.file 'index.erb', "sinatra/views/index.erb"
       m.file 'stylesheet.css', "sinatra/stylesheets/stylesheet.css"
       m.file 'layout.erb', "sinatra/views/layout.erb"

@@ -26,3 +26,6 @@ def must_have_data_source_certificate(directory)
     exit
   end
 end
+
+# all that for this
+validate_environment
