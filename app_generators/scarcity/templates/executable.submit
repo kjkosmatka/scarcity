@@ -1,0 +1,19 @@
+universe = vanilla
+executable = $(exec)
+arguments = "$(args)"
+
+error = $(exec).err
+output = $(exec).out
+log = executable.log
+
+should_transfer_files = YES
+transfer_input_files = $(inputfiles)
+when_to_transfer_output = ON_EXIT_OR_EVICT
+
+match_list_length = 5
+requirements = (Arch == "x86_64") && (TARGET.Name =!= LastMatchName1) && (OpSys == "LINUX") && (Disk > 500000) &&  (MAX_PREEMPT > 30*3600)
++AccountingGroup = "GRECC"
+Notification = never
+
+queue
+

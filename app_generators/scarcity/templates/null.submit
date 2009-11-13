@@ -1,0 +1,9 @@
+universe = scheduler
+executable = /bin/sleep
+arguments = 2
+error = null.err
+output = null.out
+log = null.log
+Notification = never
+
+queue
