@@ -17,11 +17,58 @@ Gem::Specification.new do |s|
   s.extra_rdoc_files = [
     "README.rdoc"
   ]
+  s.files = [
+    ".gitignore",
+     "README.rdoc",
+     "Rakefile",
+     "VERSION",
+     "app_generators/scarcity/USAGE",
+     "app_generators/scarcity/scarcity_generator.rb",
+     "app_generators/scarcity/templates/boot.rb",
+     "app_generators/scarcity/templates/control.rb",
+     "app_generators/scarcity/templates/dag_builder.rb",
+     "app_generators/scarcity/templates/environment.rb",
+     "app_generators/scarcity/templates/executable.rb",
+     "app_generators/scarcity/templates/executable.submit",
+     "app_generators/scarcity/templates/index.erb",
+     "app_generators/scarcity/templates/layout.erb",
+     "app_generators/scarcity/templates/null.submit",
+     "app_generators/scarcity/templates/postjob.rb",
+     "app_generators/scarcity/templates/prejob.rb",
+     "app_generators/scarcity/templates/provisions_builder.rb",
+     "app_generators/scarcity/templates/server",
+     "app_generators/scarcity/templates/stylesheet.css",
+     "app_generators/scarcity/templates/webapp.rb",
+     "bin/scarcity",
+     "lib/scarcity.rb",
+     "lib/scarcity/dagger.rb",
+     "lib/scarcity/provisions/actions.rb",
+     "lib/scarcity/provisions/core.rb",
+     "lib/scarcity/submission.rb",
+     "scarcity.gemspec",
+     "script/console",
+     "script/destroy",
+     "script/generate",
+     "test/test_generator_helper.rb",
+     "test/test_helper.rb",
+     "test/test_provision.rb",
+     "test/test_scarcity.rb",
+     "test/test_soar_generator.rb",
+     "test/test_submission.rb"
+  ]
   s.homepage = %q{http://github.com/kjkosmatka/scarcity}
   s.rdoc_options = ["--charset=UTF-8"]
   s.require_paths = ["lib"]
   s.rubygems_version = %q{1.3.5}
   s.summary = %q{An application framework for condor projects}
+  s.test_files = [
+    "test/test_generator_helper.rb",
+     "test/test_helper.rb",
+     "test/test_provision.rb",
+     "test/test_scarcity.rb",
+     "test/test_soar_generator.rb",
+     "test/test_submission.rb"
+  ]
 
   if s.respond_to? :specification_version then
     current_version = Gem::Specification::CURRENT_SPECIFICATION_VERSION
