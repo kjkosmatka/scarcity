@@ -1,32 +1,39 @@
-= soar
+= Scarcity
 
 * http://github.com/#{github_username}/#{project_name}
 
 == DESCRIPTION:
 
-FIX (describe your package)
+An application framework for projects using the Condor platform.
 
 == FEATURES/PROBLEMS:
 
-* FIX (list of features or problems)
+Application stub generators, data provisioning, dynamic Condor DAGman building,
+more on the way.
 
 == SYNOPSIS:
 
-  FIX (code sample of usage)
+Make a new application:
+
+scarcity your_app
+
+Code snippets, and some instructions pending.
 
 == REQUIREMENTS:
 
-* FIX (list of requirements)
+A Condor submit machine configured to work with a Condor pool
 
 == INSTALL:
 
-* FIX (sudo gem install, anything else)
+sudo gem install scarcity
+
+The gem is not yet public, sorry.
 
 == LICENSE:
 
 (The MIT License)
 
-Copyright (c) 2009 FIXME full name
+Copyright (c) 2009 Kristopher J. Kosmatka
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
