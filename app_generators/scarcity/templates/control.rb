@@ -19,7 +19,7 @@ def main
   parse_args
   display_args if OPTIONS[:verb]
   
-  segment = 'segment_' + OPTIONS[:segment]
+  segment = OPTIONS[:segment]
   rundir = RUNS_DIR + '/' + segment
   collision = OPTIONS[:collision]
   verb = OPTIONS[:verb]
