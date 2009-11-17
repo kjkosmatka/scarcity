@@ -5,9 +5,23 @@
   <% end %>
 </ul>
 
+
 <h2>Current Data Processing Segments</h2>
 <ul>
   <% @segments.each do |segment| %>
     <li><a href="segments/<%= segment %>"><%= segment %></a></li>
   <% end %>
 </ul>
+
+
+<h2>Current configurations</h2>
+<table border="0" class="kv">
+  <tr>
+    <th>Data source directory</th>
+    <td><%= @data_dir %></td>
+  </tr>
+  <tr>
+    <th>Processing segments directory</th>
+    <td><%= @runs_dir %></td>
+  </tr>
+</table>

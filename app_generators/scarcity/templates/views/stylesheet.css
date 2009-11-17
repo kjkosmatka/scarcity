@@ -11,5 +11,8 @@ a:hover { background-color:#B3F7AD; }
 #page-box { width:900px; margin:0 auto; }
 #page-content { background-color:white; padding:1em; border:dotted thin #555; margin-bottom:0.5em; }
 
-.detail { font-size:smaller; color:#555; }
+.detail { font-size:smaller; color:#666; }
+
+table.kv th { text-align:right; font-weight:normal; padding-right:2em; }
+table.kv td { text-align:left; font-style:italic; color:#666; }
 

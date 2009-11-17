@@ -41,6 +41,7 @@ class ScarcityGenerator < RubiGen::Base
       m.file 'views/layout.erb', "sinatra/views/layout.erb"
       m.file 'views/segments.erb', 'sinatra/views/segments.erb'
       m.file 'views/data.erb', 'sinatra/views/data.erb'
+      m.file 'views/configuration.erb', 'sinatra/views/configuration.erb'
       m.file 'views/webapp.rb', "sinatra/webapp.rb", :chmod => 0755
       m.file 'server', "script/server", :chmod => 0755
       m.template 'provisions_builder.rb', "config/builders/provisions_builder.rb"

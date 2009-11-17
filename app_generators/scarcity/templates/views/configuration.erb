@@ -1,9 +1,16 @@
 <h2>Current configurations</h2>
 
+<table border="0" class="kv">
+  <tr>
+    <th>Data source directory</th>
+    <td><%= @data_dir %></td>
+  </tr>
+  <tr>
+    <th>Processing segments directory</th>
+    <td><%= @runs_dir %></td>
+  </tr>
+</table>
+
 <p class="detail">
   To alter these configurations edit the config/environment.rb file.
 </p>
-
-<% kv_format = '%-25s : \t %s' %>
-<p><%= kv_format % ['Data source directory', @data_dir] %></p>
-<p><%= kv_format % ['Processing segments directory', @runsdir] %></p>
