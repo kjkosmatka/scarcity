@@ -36,6 +36,7 @@ Gem::Specification.new do |s|
      "app_generators/scarcity/templates/postjob.rb",
      "app_generators/scarcity/templates/prejob.rb",
      "app_generators/scarcity/templates/provisions_builder.rb",
+     "app_generators/scarcity/templates/segment.erb",
      "app_generators/scarcity/templates/server",
      "app_generators/scarcity/templates/stylesheet.css",
      "app_generators/scarcity/templates/webapp.rb",

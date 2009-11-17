@@ -1,11 +1,12 @@
-<h2>Datasets Available in <%= @data_dir %></h2>
+<h2>Datasets Available in</h2><p><%= @data_dir %></p>
 <ul>
   <% @data_ids.each do |d| %>
     <li><%= d %></li>
   <% end %>
 </ul>
 
-<h2>Existing Segments in <%= @runs_dir %></h2>
+<h2>Existing Segments in</h2>
+<p><%= @runs_dir %></p>
 <ul>
   <% @segments.each do |segment| %>
     <li><a href="segments/<%= segment %>"><%= segment %></a></li>

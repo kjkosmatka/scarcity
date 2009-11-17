@@ -22,13 +22,17 @@ end
 
 
 get '/' do
-  @data_ids = directories_in(DATA_DIR)
-  @segments = directories_in(RUNS_DIR)
+  @data_ids = directories_in(DATA_DIR).sort
+  @segments = directories_in(RUNS_DIR).sort
   erb :index
 end
 
 get '/segments/:segment' do
   @segment = params[:segment]
-  @data_ids = directories_in("#{RUNS_DIR}/#{@segment}")
+  @data_ids = directories_in("#{RUNS_DIR}/#{@segment}").sort
   erb :segment
+end
+
+get '/documentation' do
+  erb :documentation
 end
