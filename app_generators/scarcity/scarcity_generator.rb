@@ -34,11 +34,14 @@ class ScarcityGenerator < RubiGen::Base
       m.template 'control.rb', "script/#{@base_name}", :chmod => 0755
       m.template 'environment.rb', "config/environment.rb"
       m.template 'boot.rb', 'config/boot.rb'
-      m.file 'index.erb', "sinatra/views/index.erb"
-      m.file 'segment.erb', 'sinatra/views/segment.erb'
-      m.file 'stylesheet.css', "sinatra/public/css/stylesheet.css"
-      m.file 'layout.erb', "sinatra/views/layout.erb"
-      m.file 'webapp.rb', "sinatra/webapp.rb", :chmod => 0755
+      m.file 'views/index.erb', "sinatra/views/index.erb"
+      m.file 'views/segment.erb', 'sinatra/views/segment.erb'
+      m.file 'views/documentation.erb', 'sinatra/views/documentation.erb'
+      m.file 'views/stylesheet.css', "sinatra/public/css/stylesheet.css"
+      m.file 'views/layout.erb', "sinatra/views/layout.erb"
+      m.file 'views/segments.erb', 'sinatra/views/segments.erb'
+      m.file 'views/data.erb', 'sinatra/views/data.erb'
+      m.file 'views/webapp.rb', "sinatra/webapp.rb", :chmod => 0755
       m.file 'server', "script/server", :chmod => 0755
       m.template 'provisions_builder.rb', "config/builders/provisions_builder.rb"
       m.template 'dag_builder.rb', "config/builders/dag_builder.rb"

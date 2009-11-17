@@ -27,6 +27,7 @@ Gem::Specification.new do |s|
      "app_generators/scarcity/templates/boot.rb",
      "app_generators/scarcity/templates/control.rb",
      "app_generators/scarcity/templates/dag_builder.rb",
+     "app_generators/scarcity/templates/documentation.erb",
      "app_generators/scarcity/templates/environment.rb",
      "app_generators/scarcity/templates/executable.rb",
      "app_generators/scarcity/templates/executable.submit",

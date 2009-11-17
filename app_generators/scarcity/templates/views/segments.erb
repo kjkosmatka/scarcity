@@ -1,0 +1,7 @@
+<h2>Existing Segments in</h2>
+<p><%= @runs_dir %></p>
+<ul>
+  <% @segments.each do |segment| %>
+    <li><a href="segments/<%= segment %>"><%= segment %></a></li>
+  <% end %>
+</ul>
