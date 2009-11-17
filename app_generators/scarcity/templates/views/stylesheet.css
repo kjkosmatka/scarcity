@@ -4,9 +4,12 @@ ul, ol { list-style:none; }
 a { color:#05f; text-decoration:none; }
 a:hover { background-color:#B3F7AD; }
 
-#navigation { display:inline-block; }
-.active-tab { color:black; }
+#navigation { margin:0; padding:0; }
+#navigation { display:inline-block; padding:0 1em 0.3em 0; }
+.active-tab a { color:black; }
 
 #page-box { width:900px; margin:0 auto; }
 #page-content { background-color:white; padding:1em; border:dotted thin #555; margin-bottom:0.5em; }
+
+.detail { font-size:smaller; color:#555; }
 

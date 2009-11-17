@@ -16,18 +16,9 @@
     <h1><%= @app_name %></h1>
     
     <ul id="navigation">
-      <li class="<%= "active-tab" if @active_tab == :home %>">
-        <a href="/">home</a>
-      </li>
-      <li class="<%= "active-tab" if @active_tab == :data %>">
-        <a href="/data">data</a>
-      </li>
-      <li class="<%= "active-tab" if @active_tab == :segments %>">
-        <a href="/segments">segments</a>
-      </li>
-      <li class="<%= "active-tab" if @active_tab == :documentation %>">
-        <a href="documentation">documentation</a>
-      </li>
+      <% [:home, :data, :segments, :documentation].each do |tab| %>
+        <li><%= tab_content(@active_tab, tab) %></li>
+      <% end %>
     </ul>
 
     <div id="page-content">

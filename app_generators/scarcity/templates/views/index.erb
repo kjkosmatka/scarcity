@@ -1,12 +1,13 @@
-<h2>Datasets Available in</h2><p><%= @data_dir %></p>
+<h2>Currently Available Datasets</h2>
+<p class="detail"><%= @data_dir %></p>
 <ul>
   <% @data_ids.each do |d| %>
     <li><%= d %></li>
   <% end %>
 </ul>
 
-<h2>Existing Segments in</h2>
-<p><%= @runs_dir %></p>
+<h2>Current Data Processing Segments</h2>
+<p class="detail"><%= @runs_dir %></p>
 <ul>
   <% @segments.each do |segment| %>
     <li><a href="segments/<%= segment %>"><%= segment %></a></li>

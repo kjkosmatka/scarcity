@@ -1,5 +1,5 @@
-<h2>Existing Segments in</h2>
-<p><%= @runs_dir %></p>
+<h2>Current Data Processing Segments</h2>
+<p class="detail"><%= @runs_dir %></p>
 <ul>
   <% @segments.each do |segment| %>
     <li><a href="segments/<%= segment %>"><%= segment %></a></li>
