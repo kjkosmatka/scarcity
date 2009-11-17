@@ -16,7 +16,7 @@
     <h1><%= @app_name %></h1>
     
     <ul id="navigation">
-      <% [:home, :data, :segments, :documentation].each do |tab| %>
+      <% [:home, :data, :segments, :documentation, :configuration].each do |tab| %>
         <li><%= tab_content(@active_tab, tab) %></li>
       <% end %>
     </ul>

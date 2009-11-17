@@ -54,3 +54,8 @@ get '/documentation' do
   @active_tab = :documentation
   erb :documentation
 end
+
+get '/configuration' do
+  @active_tab = :configuration
+  erb :configuration
+end
