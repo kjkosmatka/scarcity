@@ -53,19 +53,18 @@ module Scarcity
       :subdag => "SUBDAG EXTERNAL" }
     attr_reader :daglines
     def initialize(jobname, sdf, options={}, &block)
+      options = {:dir => nil, :done => false, :type => :job}.merge(options)
       @daglines = Array.new
       @jobname = jobname
-      options = {:dir => nil, :done => false, :type => :job}.merge(options)
-      dir, done, type = [options[:dir], options[:done], options[:type]]
-      build_job_dagline(jobname, sdf, dir, done, type)
+      @daglines << dagline_for(jobname, sdf, options[:dir], options[:done], options[:type])
       self.instance_eval(&block) if block_given?
     end
-    def build_job_dagline(jobname, sdf, dir, done, type)
+    def dagline_for(jobname, sdf, directory, done, type)
       jobtype = JOBTYPES[type]
       new_dagline = "#{jobtype} #{jobname} #{sdf}"
-      new_dagline += " DIR #{dir}" unless dir.nil?
+      new_dagline += " DIR #{directory}" if directory
       new_dagline += " DONE" if done
-      @daglines << new_dagline
+      return new_dagline
     end
     
     def pre(script, options={})
@@ -100,7 +99,7 @@ module Scarcity
     end
     
     # escaped characters are NOT supported here.  you can cheat by double 
-    # escaping things if you want
+    # escaping things if you want (not recommended though)
     def vars(hash)
       macros = hash.map { |k,v| "#{k}=\"#{v}\"" }.join(' ')
       @daglines << "VARS #{@jobname} #{macros}"

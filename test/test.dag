@@ -1,0 +1,3 @@
+JOB head head.submit DIR some/other/directory
+PRIORITY head 5
+RETRY head 3

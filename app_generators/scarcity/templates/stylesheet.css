@@ -1,8 +1,0 @@
-body { background-color:#ccc; }
-h1, h2, h3, li, td, p, a { font-family:helvetica, verdana, arial, sans-serif; }
-ul, ol { list-style:none; }
-
-#page-box { width:900px; margin:0 auto; }
-#page-content { background-color:white; padding:1em; border:dotted thin #555; }
-
-#footer { text-align:right; }
