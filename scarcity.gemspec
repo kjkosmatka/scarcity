@@ -44,6 +44,7 @@ Gem::Specification.new do |s|
      "app_generators/scarcity/templates/views/segments.erb",
      "app_generators/scarcity/templates/views/stylesheet.css",
      "app_generators/scarcity/templates/views/webapp.rb",
+     "app_generators/scarcity/templates/webapp.rb",
      "bin/scarcity",
      "lib/scarcity.rb",
      "lib/scarcity/dagger.rb",
@@ -54,6 +55,8 @@ Gem::Specification.new do |s|
      "script/console",
      "script/destroy",
      "script/generate",
+     "test/test.dag",
+     "test/test_dagger.rb",
      "test/test_generator_helper.rb",
      "test/test_helper.rb",
      "test/test_provision.rb",
@@ -67,7 +70,8 @@ Gem::Specification.new do |s|
   s.rubygems_version = %q{1.3.5}
   s.summary = %q{An application framework for condor projects}
   s.test_files = [
-    "test/test_generator_helper.rb",
+    "test/test_dagger.rb",
+     "test/test_generator_helper.rb",
      "test/test_helper.rb",
      "test/test_provision.rb",
      "test/test_scarcity.rb",
@@ -80,9 +84,12 @@ Gem::Specification.new do |s|
     s.specification_version = 3
 
     if Gem::Version.new(Gem::RubyGemsVersion) >= Gem::Version.new('1.2.0') then
+      s.add_runtime_dependency(%q<sinatra>, [">= 0"])
     else
+      s.add_dependency(%q<sinatra>, [">= 0"])
     end
   else
+    s.add_dependency(%q<sinatra>, [">= 0"])
   end
 end
 

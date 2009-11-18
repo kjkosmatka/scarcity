@@ -1,12 +1,12 @@
-<h2>Currently Available Datasets</h2>
-<ul>
+<h2>Available Datasets</h2>
+<ul class="datalist">
   <% @data_ids.each do |d| %>
     <li><%= d %></li>
   <% end %>
 </ul>
 
 
-<h2>Current Data Processing Segments</h2>
+<h2>Processing Segments</h2>
 <ul>
   <% @segments.each do |segment| %>
     <li><a href="segments/<%= segment %>"><%= segment %></a></li>
@@ -14,7 +14,7 @@
 </ul>
 
 
-<h2>Current configurations</h2>
+<h2>Configurations</h2>
 <table border="0" class="kv">
   <tr>
     <th>Data source directory</th>
