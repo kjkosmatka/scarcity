@@ -2,6 +2,7 @@
 require 'rubygems'
 require 'ftools'
 require 'fileutils'
+require 'yaml'
 
 # vendor gems
 # require 'sinatra'
@@ -13,6 +14,7 @@ require 'scarcity'
 require 'config/environment.rb'
 require 'config/builders/dag_builder.rb'
 require 'config/builders/provisions_builder.rb'
+STATUS_CODES = YAML::load(File.open('config/status_codes.yml'))
 
 
 # boot time validations

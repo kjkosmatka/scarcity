@@ -125,7 +125,7 @@ module Scarcity
           @events << Event.new(DateTime.parse(matchdata[1]), matchdata[2])
         end
         if matchdata = RETURN_REGEX.match(line)
-          @return_value = matchdata[1]
+          @return_value = matchdata[1].to_i
         end
       end
     end
@@ -134,6 +134,7 @@ module Scarcity
       if stat == 'terminated'
         stat = return_value == 0 ? 'terminated successfully' : 'terminated with failure'
       end
+      return stat
     end
   end
   

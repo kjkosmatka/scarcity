@@ -42,11 +42,11 @@ def main
   submission.fulfill
   
   if OPTIONS[:submit]
-    dagfiles = Array.new
     submission.datasets.each do |d|
-      dagfiles << "#{d.sink}/#{d.uniq}.dag"
+      Dir.chdir(d.sink) do |dir|
+        `condor_submit_dag #{d.uniq}.dag`
+      end
     end
-    puts "condor_submit_dag -usedagdir #{dagfiles.join(' ')}"
   end
 
 end

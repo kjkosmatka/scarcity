@@ -1,10 +1,10 @@
 <h2>Summary for <span style="color:red;"><%= @segment %></span> segment</h2>
 
 <h3>Datasets Submitted</h3>
-<ul class="datalist">
-  <% @data_ids.zip(@statii).each do |data_id_stat| %>
-    <li><%= data_id_stat[0] %>:<%= data_id_stat[1] %></li>
+<table border="0" class="kv">
+  <% @data_statuses.each do |dataset| %>
+    <tr><th><%= dataset[:data_id] %><th><td class="<%= dataset[:status] %>"><%= dataset[:status] %></td></tr>
   <% end %>
-</ul>
+</table>
 
-<a href='/segments'>back to segments</a>
+<p><a href='/segments'>back to segments</a></p>

@@ -43,6 +43,7 @@ class ScarcityGenerator < RubiGen::Base
       m.template 'control.rb', "script/#{@base_name}", :chmod => 0755
       m.template 'environment.rb', "config/environment.rb"
       m.template 'boot.rb', 'config/boot.rb'
+      m.file 'status_codes.yml', 'config/status_codes.yml'
       m.file 'views/index.erb', "sinatra/views/index.erb"
       m.file 'views/segment.erb', 'sinatra/views/segment.erb'
       m.file 'views/documentation.erb', 'sinatra/views/documentation.erb'

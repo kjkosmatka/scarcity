@@ -1,6 +1,6 @@
 require 'rubygems'
 require 'sinatra'
-require 'config/environment'
+require 'config/boot'
 
 helpers do
   def directories_in(dir)
@@ -16,22 +16,27 @@ helpers do
     active_tab == tab ? "<p>#{tab}</p>" : "<a href='/#{tab}'>#{tab}</a>"
   end
   def status(directory)
-    stat = :unavailable
+    stat = STATUS_CODES[:unavailable]
     if File.directory?(directory)
       stat = :provisioned
       if File.exist?("#{directory}/#{File.basename(directory)}.dag.dagman.log")
-        stat = Scarcity::DagLog("#{directory}/#{File.basename(directory)}.dag.dagman.log").status
+        stat = Scarcity::DagLog.new("#{directory}/#{File.basename(directory)}.dag.dagman.log").status
       end
     end
     return stat
   end
 end
 
+
+
 before do
   @app_name = APP_NAME
   @data_dir = DATA_DIR
   @runs_dir = RUNS_DIR
 end
+
+
+
 
 
 get %r{/$|/home$} do
@@ -50,10 +55,8 @@ end
 get '/segments/:segment' do
   @active_tab = :segments
   @segment = params[:segment]
-  @data_ids = directories_in("#{RUNS_DIR}/#{@segment}").sort
-  @statii = Array.new
-  @data_ids.each do |data_id|
-    @statii << status("#{RUNS_DIR}/#{@segment}/#{data_id}")
+  @data_statuses = directories_in("#{RUNS_DIR}/#{@segment}").sort.map do |data_id|
+    { :data_id => data_id, :status => status("#{RUNS_DIR}/#{@segment}/#{data_id}") }
   end
   erb :segment
 end
