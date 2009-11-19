@@ -110,7 +110,7 @@ module Scarcity
   end
   
   class DagLog
-    Event = Struct.new :datetime, :action
+    Event = Struct.new :at, :action
     EVENT_REGEX = /^\d\d\d .\d\d\d\d.\d\d\d.\d\d\d. (\d\d\/\d\d \d\d:\d\d:\d\d) Job (\w*)/
     RETURN_REGEX = /termination .return value (\d+)/
     attr_reader :events, :return_value
@@ -130,7 +130,7 @@ module Scarcity
       end
     end
     def status
-      stat = @events.sort { |a,b| a.datetime <=> b.datetime }.last.action
+      stat = @events.sort { |a,b| a.at <=> b.at }.last.action
       if stat == 'terminated'
         stat = return_value == 0 ? 'terminated successfully' : 'terminated with failure'
       end

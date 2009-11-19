@@ -35,6 +35,7 @@ Gem::Specification.new do |s|
      "app_generators/scarcity/templates/prejob.rb",
      "app_generators/scarcity/templates/provisions_builder.rb",
      "app_generators/scarcity/templates/server",
+     "app_generators/scarcity/templates/status_codes.yml",
      "app_generators/scarcity/templates/views/configuration.erb",
      "app_generators/scarcity/templates/views/data.erb",
      "app_generators/scarcity/templates/views/documentation.erb",

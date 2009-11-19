@@ -15,16 +15,6 @@ helpers do
   def tab_content(active_tab, tab)
     active_tab == tab ? "<p>#{tab}</p>" : "<a href='/#{tab}'>#{tab}</a>"
   end
-  def status(directory)
-    stat = STATUS_CODES[:unavailable]
-    if File.directory?(directory)
-      stat = :provisioned
-      if File.exist?("#{directory}/#{File.basename(directory)}.dag.dagman.log")
-        stat = Scarcity::DagLog.new("#{directory}/#{File.basename(directory)}.dag.dagman.log").status
-      end
-    end
-    return stat
-  end
 end
 
 
@@ -55,9 +45,12 @@ end
 get '/segments/:segment' do
   @active_tab = :segments
   @segment = params[:segment]
-  @data_statuses = directories_in("#{RUNS_DIR}/#{@segment}").sort.map do |data_id|
-    { :data_id => data_id, :status => status("#{RUNS_DIR}/#{@segment}/#{data_id}") }
+  
+  seg = Scarcity::Segment("#{RUNS_DIR}/#{@segment}")
+  @data_statuses = seg.data_ids.map do |data_id|
+    { :data_id => data_id, :status => seg.status(data_id) }
   end
+  
   erb :segment
 end
 
