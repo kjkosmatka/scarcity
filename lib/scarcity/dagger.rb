@@ -109,4 +109,32 @@ module Scarcity
     end
   end
   
+  class DagLog
+    Event = Struct.new :datetime, :action
+    EVENT_REGEX = /^\d\d\d .\d\d\d\d.\d\d\d.\d\d\d. (\d\d\/\d\d \d\d:\d\d:\d\d) Job (\w*)/
+    RETURN_REGEX = /termination .return value (\d+)/
+    attr_reader :events, :return_value
+    def initialize(filename)
+      @events = Array.new
+      @return_value = nil
+      extract_events_from(filename)
+    end
+    def extract_events_from(filename)
+      File.readlines(filename).each do |line|
+        if matchdata = EVENT_REGEX.match(line)
+          @events << Event.new(DateTime.parse(matchdata[1]), matchdata[2])
+        end
+        if matchdata = RETURN_REGEX.match(line)
+          @return_value = matchdata[1]
+        end
+      end
+    end
+    def status
+      stat = @events.sort { |a,b| a.datetime <=> b.datetime }.last.action
+      if stat == 'terminated'
+        stat = return_value == 0 ? 'terminated successfully' : 'terminated with failure'
+      end
+    end
+  end
+  
 end

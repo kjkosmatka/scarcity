@@ -4,7 +4,7 @@ arguments = "$(args)"
 
 error = $(exec).err
 output = $(exec).out
-log = executable.log
+log = $(exec).log
 
 should_transfer_files = YES
 transfer_input_files = $(inputfiles)

@@ -12,7 +12,8 @@ OPTIONS = {
   :only        => nil,
   :except      => nil,
   :collision   => 'skip',
-  :verb        => false
+  :verb        => false,
+  :submit      => false
 }
 
 def main
@@ -39,6 +40,14 @@ def main
   end
 
   submission.fulfill
+  
+  if OPTIONS[:submit]
+    dagfiles = Array.new
+    submission.datasets.each do |d|
+      dagfiles << "#{d.sink}/#{d.uniq}.dag"
+    end
+    puts "condor_submit_dag -usedagdir #{dagfiles.join(' ')}"
+  end
 
 end
 
@@ -64,6 +73,7 @@ def parse_args
     end
     o.on("-c", "--collision=[RESPONSE]", [:skip, :replace],
          "On dataset collision: skip, replace") { |OPTIONS[:collision]| }
+    o.on('--submit','Submit the datasets to condor') { |OPTIONS[:submit]| }
     o.on('-v','--verbose','Be wordy') { |OPTIONS[:verb]| }
 
     o.separator ""

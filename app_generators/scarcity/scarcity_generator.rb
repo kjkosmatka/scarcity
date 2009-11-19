@@ -21,7 +21,6 @@ class ScarcityGenerator < RubiGen::Base
       config = YAML::load(File.read(File.expand_path('~/.scarcityrc')))
       @runs_dir = config['runs_dir']
       @data_dir = config['data_dir']
-      puts @data_dir, @runs_dir
     end
   end
 

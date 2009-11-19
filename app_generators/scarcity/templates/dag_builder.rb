@@ -17,7 +17,7 @@ def build_dag(dataset)
     job :head, 'null.submit'
     
     # jobs can take a block to specify dag configurations relevant to the node
-    job :main, "main.submit" do
+    job :main, "<%= base_name %>.submit" do
       pre 'prejob.rb'
       post 'postjob.rb'
       vars :args => "command line args",
