@@ -2,6 +2,7 @@ $:.unshift(File.dirname(__FILE__)) unless
   $:.include?(File.dirname(__FILE__)) || $:.include?(File.expand_path(File.dirname(__FILE__)))
 
 require 'set'
+require 'fileutils'
 libpath = File.dirname(__FILE__) + '/scarcity'
 require libpath + '/submission'
 require libpath + '/dagger'

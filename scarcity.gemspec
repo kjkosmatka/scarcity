@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{scarcity}
-  s.version = "0.0.0"
+  s.version = "0.0.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Kristopher J. Kosmatka"]
-  s.date = %q{2009-11-17}
+  s.date = %q{2009-11-19}
   s.default_executable = %q{scarcity}
   s.description = %q{An application framework for condor projects}
   s.email = %q{kosmatka@cs.wisc.edu}
@@ -44,7 +44,6 @@ Gem::Specification.new do |s|
      "app_generators/scarcity/templates/views/segments.erb",
      "app_generators/scarcity/templates/views/stylesheet.css",
      "app_generators/scarcity/templates/views/webapp.rb",
-     "app_generators/scarcity/templates/webapp.rb",
      "bin/scarcity",
      "lib/scarcity.rb",
      "lib/scarcity/dagger.rb",
@@ -70,13 +69,13 @@ Gem::Specification.new do |s|
   s.rubygems_version = %q{1.3.5}
   s.summary = %q{An application framework for condor projects}
   s.test_files = [
-    "test/test_dagger.rb",
-     "test/test_generator_helper.rb",
+    "test/test_generator_helper.rb",
      "test/test_helper.rb",
      "test/test_provision.rb",
      "test/test_scarcity.rb",
      "test/test_soar_generator.rb",
-     "test/test_submission.rb"
+     "test/test_submission.rb",
+     "test/test_dagger.rb"
   ]
 
   if s.respond_to? :specification_version then

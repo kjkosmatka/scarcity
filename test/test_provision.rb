@@ -2,7 +2,7 @@ require 'test_helper'
 
 class TestProvision < Test::Unit::TestCase
   def setup
-    rundir = '/Users/kosmatka/Desktop/runs'
+    rundir = '/Data/home/kris/Desktop/runs'
     @prov = Scarcity::Provisions::Core.new do
       from '../lib/scarcity'
       to rundir

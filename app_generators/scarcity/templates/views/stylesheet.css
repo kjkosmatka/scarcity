@@ -1,5 +1,5 @@
 body { background-color:#ccc; }
-h1, h2, h3, li, td, th, p, a { font-family:helvetica, verdana, arial, sans-serif; }
+h1, h2, h3, li, td, th, p, a { font-family:georgia, times, serif; }
 ul, ol { list-style:none; padding-left:1em; }
 a { color:#05f; text-decoration:none; }
 a:hover { text-decoration:underline; }

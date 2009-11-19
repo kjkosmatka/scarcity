@@ -1,14 +1,14 @@
-require 'helper'
+require 'test_helper'
 
 class TestSubmission < Test::Unit::TestCase
   def setup
-    rundir = '/Users/kosmatka/Desktop/runs'
+    rundir = '/Data/home/kris/Desktop/runs'
     
     
     @sub = Scarcity::Submission.new do
       runs_in rundir
-      pulls_from '/Users/kosmatka/Desktop/datasets',
-        :only => '123456'.each_char.to_a,
+      pulls_from '/Data/home/kris/Desktop/datasets',
+        :only => ['1','2','3','4','5','6'],
         :except => ['3','4']
       gathers_provisions
       
@@ -20,7 +20,7 @@ class TestSubmission < Test::Unit::TestCase
         file 'Rakefile', :collision => :replace
       end
       
-      provides :from => '..', :to => '/Users/kosmatka/Desktop' do
+      provides :from => '..', :to => '/Data/home/kris/Desktop' do
         file 'Rakefile', :as => 'boo.txt'
       end
     end

@@ -1,3 +1,5 @@
+require 'yaml'
+
 class ScarcityGenerator < RubiGen::Base
 
   DEFAULT_SHEBANG = File.join(Config::CONFIG['bindir'],
@@ -5,7 +7,7 @@ class ScarcityGenerator < RubiGen::Base
 
   default_options :author => nil
 
-  attr_reader :name
+  attr_reader :name, :runs_dir, :data_dir
 
   def initialize(runtime_args, runtime_options = {})
     super
@@ -13,6 +15,14 @@ class ScarcityGenerator < RubiGen::Base
     @destination_root = File.expand_path(args.shift)
     @base_name = base_name
     extract_options
+    @runs_dir = '/replace/with/your/runs/path'
+    @data_dir = '/replace/with/your/data/path'
+    if File.exist?(File.expand_path('~/.scarcityrc'))
+      config = YAML::load(File.read(File.expand_path('~/.scarcityrc')))
+      @runs_dir = config['runs_dir']
+      @data_dir = config['data_dir']
+      puts @data_dir, @runs_dir
+    end
   end
 
   def manifest
