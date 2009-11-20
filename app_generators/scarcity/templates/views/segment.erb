@@ -1,9 +1,9 @@
-<h2>Summary for <span style="color:red;"><%= @segment %></span> segment</h2>
+<h2>Summary for <span style="color:red;"><%= @segment.name %></span> segment</h2>
 
 <h3>Datasets Submitted</h3>
 <table border="0" class="kv">
-  <% @data_statuses.each do |dataset| %>
-    <tr><th><%= dataset[:data_id] %><th><td class="<%= dataset[:status] %>"><%= dataset[:status] %></td></tr>
+  <% @segment.datasets.each do |dataset| %>
+    <tr><th><%= dataset.data_id %><th><td class="<%= dataset.status %>"><%= dataset.status %></td></tr>
   <% end %>
 </table>
 

@@ -50,6 +50,7 @@ Gem::Specification.new do |s|
      "lib/scarcity/dagger.rb",
      "lib/scarcity/provisions/actions.rb",
      "lib/scarcity/provisions/core.rb",
+     "lib/scarcity/segment.rb",
      "lib/scarcity/submission.rb",
      "scarcity.gemspec",
      "script/console",
@@ -61,6 +62,7 @@ Gem::Specification.new do |s|
      "test/test_helper.rb",
      "test/test_provision.rb",
      "test/test_scarcity.rb",
+     "test/test_segment.rb",
      "test/test_soar_generator.rb",
      "test/test_submission.rb"
   ]
@@ -76,7 +78,8 @@ Gem::Specification.new do |s|
      "test/test_scarcity.rb",
      "test/test_soar_generator.rb",
      "test/test_submission.rb",
-     "test/test_dagger.rb"
+     "test/test_dagger.rb",
+     "test/test_segment.rb"
   ]
 
   if s.respond_to? :specification_version then

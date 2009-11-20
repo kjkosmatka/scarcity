@@ -2,10 +2,11 @@ module Scarcity
 
   class Segment
     
-    attr_reader :directory, :datasets
+    attr_reader :directory, :name, :datasets
     
     def initialize(directory)
       @directory = directory
+      @name = File.basename(directory)
       @datasets = directories_in(@directory).sort.map { |data_id| SegmentDataset.new("#{directory}/#{data_id}") }
     end
     def directories_in(dir)
@@ -22,6 +23,7 @@ module Scarcity
 
 
   class SegmentDataset
+    attr_reader :directory, :data_id
     def initialize(directory)
       @directory = directory
       @data_id = File.basename(directory)

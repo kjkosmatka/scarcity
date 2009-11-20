@@ -44,12 +44,7 @@ end
 
 get '/segments/:segment' do
   @active_tab = :segments
-  @segment = params[:segment]
-  
-  seg = Scarcity::Segment("#{RUNS_DIR}/#{@segment}")
-  @data_statuses = seg.data_ids.map do |data_id|
-    { :data_id => data_id, :status => seg.status(data_id) }
-  end
+  @segment = Scarcity::Segment.new("#{RUNS_DIR}/#{params[:segment]}")
   
   erb :segment
 end
