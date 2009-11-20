@@ -34,8 +34,8 @@ Gem::Specification.new do |s|
      "app_generators/scarcity/templates/postjob.rb",
      "app_generators/scarcity/templates/prejob.rb",
      "app_generators/scarcity/templates/provisions_builder.rb",
+     "app_generators/scarcity/templates/return_codes.yml",
      "app_generators/scarcity/templates/server",
-     "app_generators/scarcity/templates/status_codes.yml",
      "app_generators/scarcity/templates/views/configuration.erb",
      "app_generators/scarcity/templates/views/data.erb",
      "app_generators/scarcity/templates/views/documentation.erb",
@@ -61,6 +61,7 @@ Gem::Specification.new do |s|
      "test/test_generator_helper.rb",
      "test/test_helper.rb",
      "test/test_provision.rb",
+     "test/test_return_codes.rb",
      "test/test_scarcity.rb",
      "test/test_segment.rb",
      "test/test_soar_generator.rb",
@@ -72,14 +73,15 @@ Gem::Specification.new do |s|
   s.rubygems_version = %q{1.3.5}
   s.summary = %q{An application framework for condor projects}
   s.test_files = [
-    "test/test_generator_helper.rb",
+    "test/test_dagger.rb",
+     "test/test_generator_helper.rb",
      "test/test_helper.rb",
      "test/test_provision.rb",
+     "test/test_return_codes.rb",
      "test/test_scarcity.rb",
+     "test/test_segment.rb",
      "test/test_soar_generator.rb",
-     "test/test_submission.rb",
-     "test/test_dagger.rb",
-     "test/test_segment.rb"
+     "test/test_submission.rb"
   ]
 
   if s.respond_to? :specification_version then

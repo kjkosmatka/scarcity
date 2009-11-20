@@ -2,11 +2,12 @@
 
 <h3>Datasets Submitted</h3>
 <table border="0" class="kv">
+  <tr><th></th><th class='header'>Status</th><th class='header'>Outcome</th></tr>
   <% @segment.datasets.each do |dataset| %>
     <tr>
-      <th><%= dataset.data_id %><th>
+      <th><%= dataset.data_id %></th>
       <td class="<%= dataset.status %>"><%= dataset.status %></td>
-      <td><%= RETURN_CODES[dataset.return_value] %></td>
+      <td><%= RETURN_CODES.message(dataset.return_value) %></td>
     </tr>
   <% end %>
 </table>

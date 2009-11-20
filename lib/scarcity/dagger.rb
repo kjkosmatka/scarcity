@@ -127,7 +127,7 @@ module Scarcity
         if matchdata = RETURN_REGEX.match(line)
           @return_value = matchdata[1].to_i
         end
-      end
+      end if File.exist?(filename)
     end
     def status
       @events.empty? ? nil : @events.sort { |a,b| a.at <=> b.at }.last.action

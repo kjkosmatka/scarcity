@@ -1,1 +1,5 @@
-0: 'completed successfully'
+0: 'Completed successfully'
+1: 'Failed for some reason'
+2: 'Failed for some other reason'
+code_missing: 'Failed for unknown reason'
+pending: 'Outcome pending'

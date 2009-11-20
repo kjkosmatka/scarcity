@@ -31,3 +31,19 @@ class Dir
     File.directory?(dir) ? Dir.entries(dir).reject { |f| f =~ /^\./ } : Array.new
   end
 end
+
+class ReturnCodes
+  CODE_MISSING = 'code_missing'
+  PENDING = 'pending'
+  def initialize(code_hash)
+    @coded_messages = code_hash
+  end
+  def message(code)
+    if code.nil? or code == ''
+      code = PENDING
+    elsif not @coded_messages.has_key?(code)
+      code = CODE_MISSING
+    end
+    @coded_messages[code]
+  end
+end
