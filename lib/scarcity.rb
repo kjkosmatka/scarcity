@@ -19,3 +19,15 @@ module Scarcity
   end
   
 end
+
+class Dir
+  def self.directories(dir)
+    self.items(dir).reject { |f| not File.directory?("#{dir}/#{f}") }
+  end
+  def self.files(dir)
+    self.items(dir).reject { |f| File.directory?("#{dir}/#{f}") }
+  end
+  def self.items(dir)
+    File.directory?(dir) ? Dir.entries(dir).reject { |f| f =~ /^\./ } : Array.new
+  end
+end

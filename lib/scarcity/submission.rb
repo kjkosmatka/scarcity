@@ -47,30 +47,20 @@ module Scarcity
     end
     
     def gathers_provisions
-      datadirs = Set.new(directories_in(@data_directory))
+      datadirs = Set.new(Dir.directories(@data_directory))
       datadirs &= @whitelist if @whitelist
       datadirs -= @blacklist if @blacklist
       
       datadirs.each do |dir|  
         source = @data_directory + '/' + dir
         sink = @run_directory + '/' + dir
-        files = visible_files_in(source)
+        files = Dir.files(source)
         d = Dataset.new(source, sink, files, dir)
         @provisions.context({:from => d.source, :to => d.sink}) do
           files d.filenames
         end
         @datasets << d
       end
-    end
-  
-  private
-  
-    def directories_in(directory)
-      Dir.entries(directory).reject { |f| not File.directory?(directory + '/' + f) or /^\./ =~ f }
-    end
-  
-    def visible_files_in(directory)
-      Dir.entries(directory).reject { |f| File.directory?(directory + '/' + f) or /^\./ =~ f }
     end
   
   end

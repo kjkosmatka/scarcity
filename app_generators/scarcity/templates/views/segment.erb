@@ -3,7 +3,11 @@
 <h3>Datasets Submitted</h3>
 <table border="0" class="kv">
   <% @segment.datasets.each do |dataset| %>
-    <tr><th><%= dataset.data_id %><th><td class="<%= dataset.status %>"><%= dataset.status %></td></tr>
+    <tr>
+      <th><%= dataset.data_id %><th>
+      <td class="<%= dataset.status %>"><%= dataset.status %></td>
+      <td><%= RETURN_CODES[dataset.return_value] %></td>
+    </tr>
   <% end %>
 </table>
 

@@ -51,6 +51,7 @@ module Provisions
       options = defaults.merge(options)
       @manifest << FileAction.new(options)
     end
+    
     def files(filelist,options={})
       filelist.each do |filename|
         file(filename,options)

@@ -130,11 +130,7 @@ module Scarcity
       end
     end
     def status
-      stat = @events.sort { |a,b| a.at <=> b.at }.last.action
-      if stat == 'terminated'
-        stat = return_value == 0 ? 'terminated successfully' : 'terminated with failure'
-      end
-      return stat
+      @events.empty? ? nil : @events.sort { |a,b| a.at <=> b.at }.last.action
     end
   end
   

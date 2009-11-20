@@ -13,7 +13,7 @@ a:hover { text-decoration:underline; }
 
 .detail { font-size:small; color:#666; }
 
-table.kv th { text-align:right; font-weight:normal; padding-right:2em; }
+table.kv th { text-align:right; font-weight:normal; padding:0 2em; }
 table.kv td { text-align:left; font-style:italic; color:#666; }
 
 ul.datalist { margin:1em; padding:0; overflow:hidden; }

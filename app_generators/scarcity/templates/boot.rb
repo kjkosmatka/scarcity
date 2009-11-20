@@ -14,7 +14,7 @@ require 'scarcity'
 require 'config/environment.rb'
 require 'config/builders/dag_builder.rb'
 require 'config/builders/provisions_builder.rb'
-STATUS_CODES = YAML::load(File.open('config/status_codes.yml'))
+RETURN_CODES = YAML::load(File.open('config/return_codes.yml'))
 
 
 # boot time validations
