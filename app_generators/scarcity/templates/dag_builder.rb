@@ -1,4 +1,4 @@
-# This function is used to build the dag that is ultimately submitted for each
+# This function is used to build the dag that is submitted for each
 # dataset. In many simple cases this can be left untouched.  However, there
 # is great flexibility here and you can build an arbitrarily complex dag for
 # each of your datasets which can buy you satisfying fault tolerance in Condor.

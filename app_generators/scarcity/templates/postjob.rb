@@ -3,4 +3,3 @@
 # Note this is run on the submit machine, in the run directory for
 # the particular dataset.
 
-# nothing for now

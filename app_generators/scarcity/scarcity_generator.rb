@@ -7,7 +7,7 @@ class ScarcityGenerator < RubiGen::Base
 
   default_options :author => nil
 
-  attr_reader :name, :runs_dir, :data_dir
+  attr_reader :name, :segments_dir, :data_sources_dir
 
   def initialize(runtime_args, runtime_options = {})
     super
@@ -15,12 +15,12 @@ class ScarcityGenerator < RubiGen::Base
     @destination_root = File.expand_path(args.shift)
     @base_name = base_name
     extract_options
-    @runs_dir = '/replace/with/your/runs/path'
-    @data_dir = '/replace/with/your/data/path'
+    @segments_dir = '/replace/with/your/runs/path'
+    @data_sources_dir = '/replace/with/your/data/path'
     if File.exist?(File.expand_path('~/.scarcityrc'))
       config = YAML::load(File.read(File.expand_path('~/.scarcityrc')))
-      @runs_dir = config['runs_dir']
-      @data_dir = config['data_dir']
+      @segments_dir = config['segments_dir']
+      @data_sources_dir = config['data_sources_dir']
     end
   end
 

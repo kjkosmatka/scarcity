@@ -21,7 +21,7 @@ def main
   display_args if OPTIONS[:verb]
   
   segment = OPTIONS[:segment]
-  rundir = RUNS_DIR + '/' + segment
+  rundir = SEGMENTS_DIR + '/' + segment
   collision = OPTIONS[:collision]
   verb = OPTIONS[:verb]
   
@@ -29,11 +29,11 @@ def main
   blacklist = OPTIONS[:except]
   whitelist = nil if OPTIONS[:all]
 
-  submission = build_provisions rundir, DATA_DIR, whitelist, blacklist
+  submission = build_provisions rundir, DATA_SOURCES_DIR, whitelist, blacklist
   
   submission.datasets.each do |d|
     dag = build_dag d
-    dag.save("tmp/#{d.uniq}.dag")
+    dag.save!("tmp/#{d.uniq}.dag")
     submission.provides :from => 'tmp', :to => d.sink do
       file "#{d.uniq}.dag"
     end
