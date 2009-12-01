@@ -1,17 +1,79 @@
+##############################################################################
+#
+#  Universe and Executables
+#
+#  If you are running compiled code that has been relinked using 
+#  condor_compile, you can use the 'standard' universe to take advantage of
+#  checkpointing.  Otherwise you can just run in the 'vanilla' universe.
+#
+#  Typically a Scarcity project will be laid out as a condor DAG, from which
+#  the 'exec' and 'args' macros become available to the submit description
+#  file.  Thus, it is usually not neccessary to change anything here.
+#
+##############################################################################
+
 universe = vanilla
 executable = $(exec)
 arguments = "$(args)"
+
+
+##############################################################################
+#
+#  Output and Logging
+#
+#  Again the 'exec' macro is typically made available from the DAG, so no
+#  need to change it here.  Currently the logfile name cannot be populated
+#  using the normal macro mechanism.  Thus, if you want separate
+#  logging for each node in your DAG you must create an SDF for each one.
+#
+##############################################################################
 
 error = $(exec).err
 output = $(exec).out
 log = executables.log
 
+
+##############################################################################
+#
+#  Environment
+# 
+#  Any environment variables that are necessary on the execute machine can be
+#  specified here.  Of particular interest, when running matlab functions
+#  that have been compiled to standalone executables, the executing machine 
+#  needs to know where to find the Matlab Compiler Runtime.  Typically this
+#  requires two environment variables to be set: LD_LIBRARY_PATH, and 
+#  XAPPLRESDIR.
+#
+##############################################################################
+
+# environment = "LD_LIBRARY_PATH=/path/to/somewhere XAPPLRESDIR=/path/to/somewhere"
+
+
+##############################################################################
+#
+#  Asset transfer options
+#
+#  You can make other files available on the execute machine using these
+#  options.  Typically we let the list of files filter in from the DAG using
+#  the 'inputfiles' macro
+#
+##############################################################################
+
 should_transfer_files = YES
 transfer_input_files = $(inputfiles)
 when_to_transfer_output = ON_EXIT_OR_EVICT
 
+
+##############################################################################
+#
+#  Class Ad Requirments, Notification, etc.
+#
+##############################################################################
+
 match_list_length = 5
-requirements = (Arch == "x86_64") && (TARGET.Name =!= LastMatchName1) && (OpSys == "LINUX")
+requirements = (Arch == "x86_64") && \
+               (TARGET.Name =!= LastMatchName1) && \
+               (OpSys == "LINUX")
 +AccountingGroup = "GRECC"
 Notification = never
 

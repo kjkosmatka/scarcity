@@ -1,1 +1,84 @@
-<p>Documentation for <%= @app_name %> will go here.</p>
+<h1>Scarcity</h1>
+  <p>
+    <a href='http://github.com/kjkosmatka/scarcity'>
+      http://github.com/kjkosmatka/scarcity
+    </a>
+  </p>
+
+
+<h2>Wha?</h2>
+  <p>An application framework for projects using the Condor platform.</p>
+  <p>
+    What's with the name?  A 'scarcity' is a group of condors.  A group of 
+    condors is also sometimes called a 'condo'.  Votes please.
+  </p>
+
+
+<h2>With the what now?</h2>
+  <p>
+    Scarcity is a project management system for scientists and other people
+    with lots of data and intensive processing demands.  It is designed to 
+    address high-throughput computing needs, that is to say you have large data
+    sets and applications that run on the order of days, weeks, and months, not
+    seconds, minutes, or hours.  Condor provides a time-tested platform for 
+    high-throughput computing, but it is complex and requires a great deal of 
+    configuration.  Scarcity, takes a convention over configuration approach 
+    similar to the Ruby on Rails web application framework in order to simplify
+    the task of creating new applications that take advantage of the Condor 
+    distributed computing platform.
+  </p>
+  <p>
+    Scarcity organizes a project by separating the data source from where it is
+    processed.  We often want to separate groups of processed datasets into 
+    groups.  For example, when data is first collected we might want to run
+    a few sets to test that our system is working as expected.  Later, we want
+    to run a subset of all our data for one specific analysis.  Meanwhile,
+    another grad student wants to rerun some datasets that overlap with the
+    previous analysis.  Scarcity calls these groups 'segments'.  A segment is 
+    simply a group of datasets that have all been processed the same way and 
+    belong together for some reason.  When we want to process a large batch of
+    data in segment, scarcity makes it easy to do using the power and fault 
+    tolerance of your neighborhood Condor pool.
+  </p>
+
+
+<h2>How?</h2>
+
+  <h3>Install</h3>
+  <code>sudo gem install scarcity</code>
+
+  <h3>Create a new application</h3>
+  <code>scarcity your_app</code>
+  <p>
+    A new application skeleton has just been created for you.  It includes a
+    fairly sensible set of default setting and in many cases will need very
+    little modification to get your project up and running.
+  </p>
+
+  <h3>Make it your own</h3>
+  <ol>
+    <li>Place your executables in app/executables</li>
+    <li>Pre and post scripts can be placed in app/scripts</li>
+    <li>Edit or create your own Condor submit description files in app/submits</li>
+    <li>Specify your workflow the ruby way in config/builders/dag_builder.rb</li>
+    <li>Collect all the files your data will need the ruby way in config/builders/provisions_builder.rb</li>
+    <li>Tell your applcation where to find its data and where to run in config/environment.rb</li>
+  </ol>
+
+  <h3>Create and submit a new segment</h3>
+  <code>
+    script/your_app --segment=a_new_segment --all --submit
+  </code>
+
+  <h3>Watch the scarcity fly!</h3>
+  <code>script/server</code>
+  <p>Point your browser to <a href='http://localhost:4567'>http://localhost:4567</a></p>
+
+
+<h2>Requirements</h2>
+<ul>
+  <li>A Condor submit machine configured to work with a Condor pool</li>
+  <li><a href='http://www.sinatrarb.com/'>Sinatra</a> for the web application</li>
+  <li><a href='http://rubigen.rubyforge.org/'>Rubigen</a></li>
+</ul>
+

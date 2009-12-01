@@ -8,7 +8,7 @@ def build_provisions(run_directory, data_directory, whitelist, blacklist)
   
     # declare where runs happen and where data comes from
     # and indicate that we gather default provisions accordingly 
-    # This will not change in most cases.
+    # This will not need to change in almost all cases.
     runs_in         run_directory
     pulls_from      data_directory, :only => whitelist, :except => blacklist
     gathers_provisions
@@ -31,7 +31,7 @@ def build_provisions(run_directory, data_directory, whitelist, blacklist)
       file 'null.submit'
     end
   
-    # You might also declare good to be provided to the run as a whole
+    # You might also declare goods to be provided to the run as a whole
     # provides :from => 'lib/submits', :to => :run do
     #   file 'null.submit'
     # end

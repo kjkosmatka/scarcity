@@ -1,3 +1,7 @@
+# Define the return codes for your application here.  The return codes are
+# the ones listed in the main dag log file for each dataset.  If they 
+# have any particular meaning, then error messages can be customized to report
+# intelligible messages in the Scarcity web application.
 0: 'Completed successfully'
 1: 'Failed for some reason'
 2: 'Failed for some other reason'
