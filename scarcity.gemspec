@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Kristopher J. Kosmatka"]
-  s.date = %q{2009-11-24}
+  s.date = %q{2009-12-01}
   s.default_executable = %q{scarcity}
   s.description = %q{An application framework for condor projects}
   s.email = %q{kosmatka@cs.wisc.edu}
