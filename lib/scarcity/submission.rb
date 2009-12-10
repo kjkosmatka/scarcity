@@ -2,7 +2,7 @@ module Scarcity
 
   class Submission
   
-    attr_reader :datasets, :provision, :run_directory, :data_directory
+    attr_reader :datasets, :provision, :segment_directory, :data_directory
   
     def initialize(options={}, &block)
       @datasets = Array.new
@@ -12,7 +12,7 @@ module Scarcity
     end
   
     def runs_in(directory)
-      @run_directory = directory
+      @segment_directory = directory
       @provisions.to directory
     end
   
@@ -29,8 +29,8 @@ module Scarcity
         @datasets.each do |d|
           @provisions.context({:from => options[:from], :to => d.sink}, &block)
         end
-      elsif options[:to] == :run
-        @provisions.context({:from => options[:from], :to => @run_directory}, &block)
+      elsif options[:to] == :segment
+        @provisions.context({:from => options[:from], :to => @segment_directory}, &block)
       else
         @provisions.context({:from => options[:from], :to => options[:to]}, &block)
       end
@@ -46,18 +46,24 @@ module Scarcity
       end
     end
     
-    def gathers_provisions
+    def gathers_provisions(options={:zip_data => false})
       datadirs = Set.new(Dir.directories(@data_directory))
       datadirs &= @whitelist if @whitelist
       datadirs -= @blacklist if @blacklist
       
-      datadirs.each do |dir|  
-        source = @data_directory + '/' + dir
-        sink = @run_directory + '/' + dir
+      datadirs.each do |dir|
+        source = File.join(@data_directory, dir)
+        sink = File.join(@segment_directory, dir)
         files = Dir.files(source)
         d = Dataset.new(source, sink, files, dir)
-        @provisions.context({:from => d.source, :to => d.sink}) do
-          files d.filenames
+        if options[:zip_data]
+          @provisions.context({:to => sink}) do
+            archive dir
+          end
+        else
+          @provisions.context({:from => d.source, :to => d.sink}) do
+            files d.filenames
+          end
         end
         @datasets << d
       end

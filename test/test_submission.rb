@@ -2,21 +2,21 @@ require 'test_helper'
 
 class TestSubmission < Test::Unit::TestCase
   def setup
-    rundir = '/Data/home/kris/Desktop/runs'
-    
+    segsdir = '/Data/home/kris/Desktop/segments'
+    datadir = '/Data/home/kris/Desktop/datasets'
     
     @sub = Scarcity::Submission.new do
-      runs_in rundir
-      pulls_from '/Data/home/kris/Desktop/datasets',
-        :only => ['1','2','3','4','5','6'],
-        :except => ['3','4']
-      gathers_provisions
+      runs_in     segsdir
+      pulls_from  datadir,
+        :only => ['alz0001','alz0002','alz0003','alz0004','alz0005','alz0006'],
+        :except => ['alz0003','alz0004']
+      gathers_provisions :zip_data => true
       
       provides :from => '../lib/scarcity', :to => :each_dataset do
         file 'submission.rb', :chmod => 0755
       end
       
-      provides :from => '..', :to => :run do
+      provides :from => '..', :to => :segment do
         file 'Rakefile', :collision => :replace
       end
       

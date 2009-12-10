@@ -8,7 +8,7 @@ class TestProvision < Test::Unit::TestCase
       to rundir
       
       file 'dagger.rb', :as => 'outprovision.rb'
-      file 'submission.rb', :chmod => 0755, :overwrite => true
+      file 'submission.rb', :chmod => 0755, :collision => :replace
       
       from '..' do
         file 'README.rdoc'

@@ -41,13 +41,18 @@ module Provisions
       end
     end
     
+    def archive(directory,options={})
+      defaults = { :from => @from,
+                   :item => directory,
+                   :to => @to }
+      options = defaults.merge(options)
+      @manifest << ArchiveAction.new(options)
+    end
+    
     def file(filename,options={})
       defaults = { :from => @from,
-                   :filename => filename,
-                   :to => @to,
-                   :as => filename,
-                   :chmod => nil,
-                   :collision => :skip }
+                   :item => filename,
+                   :to => @to }
       options = defaults.merge(options)
       @manifest << FileAction.new(options)
     end
