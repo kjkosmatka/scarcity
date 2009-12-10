@@ -1,9 +1,12 @@
 module Scarcity
 module Provisions
+  
   MESSAGE_FORMAT = "%12s   %s"
   
   class FileAction
+    
     attr_accessor :from, :filename, :to, :as, :chmod, :collision
+    
     def initialize(options)
       defaults = { :from => nil, 
                    :filename => nil,
@@ -21,10 +24,13 @@ module Provisions
     end
     
     def origin
-      "#{from}/#{filename}"
+      # "#{from}/#{filename}"
+      File.join(from,filename)
     end
+    
     def insertion
-      "#{to}/#{as}"
+      # "#{to}/#{as}"
+      File.join(to,as)
     end
     
     def fulfill
@@ -51,6 +57,25 @@ module Provisions
         FileUtils.cp origin, insertion
         FileUtils.chmod @chmod, insertion if @chmod
       end
+    end
+    
+  end
+  
+  class ArchiveAction
+    attr_accessor :from, :to, :collision
+    def initialize(options)
+      defaults = { :from => nil,
+                   :to => nil,
+                   :as => nil,
+                   :collision => :skip }
+      options = defaults.merge(options)
+      defaults.keys.each do |k|
+        instance_variable_set "@#{k}", "#{options[k]}"
+      end
+    end
+    def fulfill
+      if not File.directory?(@from)
+        puts MESSAGE_FORMAT % ["absent", @from]
     end
   end
   
