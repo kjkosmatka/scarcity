@@ -15,12 +15,12 @@ def build_provisions(run_directory, data_directory, whitelist, blacklist)
   
     # Declare other goods that will be provided to each dataset at run time.
     provides :from => 'app/executables', :to => :each_dataset do
-      file '<%= base_name %>.rb', :chmod => 0755
+      file '<%= base_name %>.py', :chmod => 0755
     end
   
     provides :from => 'app/scripts', :to => :each_dataset do
-      file 'prejob.rb', :chmod => 0755
-      file 'postjob.rb', :chmod => 0755
+      file 'prejob.py', :chmod => 0755
+      file 'postjob.py', :chmod => 0755
     end
   
     provides :from => 'app/submits', :to => :each_dataset do

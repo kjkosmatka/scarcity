@@ -18,10 +18,10 @@ def build_dag(dataset)
     
     # jobs can take a block to specify dag configurations relevant to the node
     job :main, "<%= base_name %>.submit" do
-      pre 'prejob.rb'
-      post 'postjob.rb'
+      pre 'prejob.py'
+      post 'postjob.py'
       vars :args => "command line args",
-           :exec => "<%= base_name %>.rb",
+           :exec => "<%= base_name %>.py",
            :inputfiles => dataset.filenames.join(',')
       priority 5
       retries 3
