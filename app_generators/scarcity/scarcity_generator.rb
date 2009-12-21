@@ -36,9 +36,9 @@ class ScarcityGenerator < RubiGen::Base
       # m.file     "file",         "some_file_copied"
       # m.file_copy_each ["path/to/file", "path/to/file2"]
       m.file 'null.submit', 'lib/submits/null.submit'
-      m.file 'prejob.rb', 'app/scripts/prejob.py', :chmod => 0755
-      m.file 'postjob.rb', 'app/scripts/postjob.py', :chmod => 0755
-      m.file 'executable.rb', "app/executables/#{@base_name}.py", :chmod => 0755
+      m.file 'prejob.py', 'app/scripts/prejob.py', :chmod => 0755
+      m.file 'postjob.py', 'app/scripts/postjob.py', :chmod => 0755
+      m.file 'executable.py', "app/executables/#{@base_name}.py", :chmod => 0755
       m.file 'executable.submit', "app/submits/#{@base_name}.submit"
       m.template 'control.rb', "script/#{@base_name}", :chmod => 0755
       m.template 'environment.rb', "config/environment.rb"
